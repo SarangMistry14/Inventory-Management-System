@@ -1,22 +1,42 @@
 "use client";
 import React, { useState } from "react";
 import { Box, TextField, Typography, Button, Link } from "@mui/material";
+import { useAuth } from "../../context/AuthContext";
+import { useRouter } from "next/navigation";
+
 function Login() {
+  //
+  const router = useRouter();
   // Use state for form
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  //
+  const [loading, setLoading] = useState(false);
+  const { login } = useAuth();
 
-  const handelSubmit = () => {
-    //  e.preventDefault;
+  const handelSubmit = async (e) => {
+    e.preventDefault();
+    console.log("here");
     if (!email || !password) {
       setError("Please enter your Email and Password");
     }
+    try {
+      setError("");
+      setLoading(true);
+      await login(email, password);
+      console.log("Successfully logged in");
+      router.push("/dashboard");
+    } catch {
+      setLoading(false);
+      return setError("Failed to log in");
+    }
+    setLoading(false);
   };
 
   return (
     <>
-      <form>
+      <form onSubmit={handelSubmit}>
         <Box
           display="flex"
           flexDirection={"column"}
@@ -69,7 +89,8 @@ function Login() {
               marginTop: 3,
               borderRadius: 3,
             }}
-            onClick={handelSubmit}
+            type="submit"
+            disabled={loading}
           >
             Login
           </Button>

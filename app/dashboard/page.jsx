@@ -1,9 +1,12 @@
-import React from 'react'
-
+"use client";
+import React from "react";
+import Navbar from "../components/Navbar";
+import { Box, TextField, Typography, Button, Link } from "@mui/material";
 export default function Dashboard() {
-  return (
+  return <>
+    <Navbar/>
     <div>
-      In Dashboard
+      container
     </div>
-  )
+  </>;
 }
