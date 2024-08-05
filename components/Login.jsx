@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Box, TextField, Typography, Button, Link } from "@mui/material";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/navigation";
 
 function Login() {
@@ -13,9 +13,9 @@ function Login() {
   const [error, setError] = useState(null);
   //
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { login,userInfo } = useAuth();
 
-  const handelSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("here");
     if (!email || !password) {
@@ -36,18 +36,35 @@ function Login() {
 
   return (
     <>
-      <form onSubmit={handelSubmit}>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          // ! fix the image
+          // backgroundImage: "url(/image/background-img.png)",
+          // backgroundSize: "cover",
+          // backgroundPosition: "center",
+          // backgroundRepeat: "no-repeat",
+          background: "linear-gradient(to right, #ff7e5f, #feb47b)",
+        }}
+      >
         <Box
           display="flex"
           flexDirection={"column"}
           maxWidth={400}
           alignItems={"center"}
           justifyContent={"center"}
-          margin="auto"
           marginTop={5}
           padding={5}
           borderRadius={5}
-          boxShadow={"5px 5px 10px #ccc"}
+          //! change the following
+          backgroundColor="rgba(255, 255, 255)"
+          boxShadow={"0px 0px 10px rgba(0, 0, 0, 0.1)"}
           sx={{
             ":hover": {
               boxShadow: "10px 10px 20px #ccc",
@@ -115,7 +132,7 @@ function Login() {
             </Link>
           </Box>
         </Box>
-      </form>
+      </Box>
     </>
   );
 }

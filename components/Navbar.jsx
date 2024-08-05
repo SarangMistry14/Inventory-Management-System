@@ -33,7 +33,13 @@ function Navbar() {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        sx={{
+          // backgroundColor: "red",
+          color: "white",
+        }}
+      >
         {/* add background color here and change the text color */}
         <Toolbar>
           {/* // <IconButton></IconButton> */}
@@ -47,8 +53,12 @@ function Navbar() {
             Logo here
           </Typography>
           <Stack direction={"row"} spacing={2}>
-            <Button color="inherit">Home</Button>
-            <Button color="inherit">Profile</Button>
+            <Button color="inherit" onClick={() => router.push("../dashboard")}>
+              Home
+            </Button>
+            <Button color="inherit" onClick={() => router.push("../profile")}>
+              Profile
+            </Button>
             <Button color="inherit" onClick={handleLogOut}>
               Logout
             </Button>

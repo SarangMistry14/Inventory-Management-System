@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useEffect } from "react";
 import { useState, useContext, useRef } from "react";
 import { auth, db } from "../firebase";
@@ -23,7 +23,7 @@ export function AuthProvider({ children }) {
   // storing current user
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
-  //   const userInfo = useRef();
+  const userInfo = useRef();
 
   function signup(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -53,7 +53,7 @@ export function AuthProvider({ children }) {
     login,
     signup,
     logout,
-    // userInfo,
+    userInfo,
   };
 
   return (
