@@ -186,7 +186,7 @@ export default function SignUp() {
           {/* To Sign up */}
           <Typography>Already have an account?</Typography>
           <Link
-            href="/signup"
+            href="/"
             sx={{
               ":hover": {
                 color: "red",
