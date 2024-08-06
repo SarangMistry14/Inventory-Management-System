@@ -65,7 +65,9 @@ export default function SignUp() {
         // backgroundSize: "cover",
         // backgroundPosition: "center",
         // backgroundRepeat: "no-repeat",
-        background: "linear-gradient(to right, #ff7e5f, #feb47b)",
+        background: "rgb(2,0,36)",
+        background:
+          "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(53,135,251,1) 86%)",
       }}
     >
       <Box

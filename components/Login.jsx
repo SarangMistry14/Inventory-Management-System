@@ -13,7 +13,7 @@ function Login() {
   const [error, setError] = useState(null);
   //
   const [loading, setLoading] = useState(false);
-  const { login,userInfo } = useAuth();
+  const { login, userInfo } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +29,7 @@ function Login() {
       router.push("/dashboard");
     } catch {
       setLoading(false);
-      return setError("Failed to log in");
+      return setError("Invalid Login Credential");
     }
     setLoading(false);
   };
@@ -50,7 +50,10 @@ function Login() {
           // backgroundSize: "cover",
           // backgroundPosition: "center",
           // backgroundRepeat: "no-repeat",
-          background: "linear-gradient(to right, #ff7e5f, #feb47b)",
+
+          background: "rgb(2,0,36)",
+          background:
+            "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(53,135,251,1) 86%)",
         }}
       >
         <Box

@@ -50,7 +50,7 @@ function Navbar() {
               flexGrow: 1,
             }}
           >
-            Logo here
+            IMS
           </Typography>
           <Stack direction={"row"} spacing={2}>
             <Button color="inherit" onClick={() => router.push("../dashboard")}>

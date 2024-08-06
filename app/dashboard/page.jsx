@@ -19,8 +19,7 @@ export default function Dashboard() {
   useEffect(() => {
     // updateInventory();
     const fetchData = async () => {
-      if(currentUser){
-
+      if (currentUser) {
         console.log("the user id is " + currentUser.uid);
         const userDocRef = doc(db, "users", currentUser.uid);
         const userDoc = await getDoc(userDocRef);
@@ -33,8 +32,8 @@ export default function Dashboard() {
         } else {
           console.log("Data does not exits");
         }
-      }else{
-        console.log('user does not exits')
+      } else {
+        console.log("user does not exits");
       }
     };
     // calling the funciton
@@ -160,8 +159,19 @@ export default function Dashboard() {
         justifyContent={"center"}
         alignItems={"center"}
         height={"95vh"}
+        sx={{
+          background: "rgb(2,0,36)",
+          background:
+            "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(53,135,251,1) 86%)",
+        }}
       >
-        <Box border={"solid"} padding={3} borderRadius={3}>
+        <Box
+          border={"solid"}
+          padding={3}
+          borderRadius={3}
+          backgroundColor={'white'}
+         
+        >
           <Typography variant="h3">Inventory Item</Typography>
           {/* box for item add */}
 
@@ -179,7 +189,6 @@ export default function Dashboard() {
                 type="text"
                 onChange={(e) => setItemName(e.target.value)}
                 value={itemName}
-
                 sx={{
                   flex: "1",
                 }}
